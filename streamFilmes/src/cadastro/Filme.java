@@ -1,5 +1,10 @@
 package cadastro;
 
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
 public class Filme {
 	private String titulo;
 	private int ano;
@@ -10,5 +15,6 @@ public class Filme {
 		this.titulo = titulo;
 		this.ano = ano;
 		this.avaliacao = avaliacao;
+				
 	}
 }

@@ -44,8 +44,8 @@ public class main {
 				} else {
 					System.out.println("Filmes cadastrados: ");
 					for (Filme filme : filmes) {
-						/*System.out.println("\nT tulo: " + filme.getTitulo() + "\nAno: " + filme.getAno() + "\nAvalia  o: "
-								+ filme.getAvaliacao() );*/
+						System.out.println("\nTítulo: " + filme.getTitulo() + "\nAno: " + filme.getAno() + "\nAvalia  o: "
+								+ filme.getAvaliacao() );
 					}
 				}
 				break;
@@ -53,7 +53,7 @@ public class main {
 				System.out.println("Saindo do programa.");
 				break;
 			default:
-				System.out.println("Op  o inv lida. Escolha novamente.");
+				System.out.println("Op  o inválida. Escolha novamente.");
 			}
 		} while (opcao != 3);
 		scanner.close();
