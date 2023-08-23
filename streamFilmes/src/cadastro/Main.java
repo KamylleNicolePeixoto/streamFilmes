@@ -17,14 +17,16 @@ public class Main {
 		String password = "root";
 
 		DatabaseConnection dbConnection = new DatabaseConnection(url, username, password);
-
-		try (Connection connection = dbConnection.getConnection()) {
+		Connection connection = null;
+		
+		try {
+			 connection = dbConnection.getConnection();
 			System.out.println("Conexão bem-sucedida!");
 			// Agora você tem a conexão e pode continuar a implementar outras
 			// funcionalidades.
 		} catch (SQLException e) {
 			System.err.println("Erro ao conectar ao banco de dados: " + e.getMessage());
-		}
+		} 
 
 		Scanner scanner = new Scanner(System.in);
 		scanner.useLocale(Locale.forLanguageTag("pt-BR"));
@@ -70,6 +72,7 @@ public class Main {
 				break;
 			case 3:
 				System.out.println("Saindo do programa.");
+				dbConnection.closeConnection(connection);
 				break;
 			default:
 				System.out.println("Op  o inválida. Escolha novamente.");
