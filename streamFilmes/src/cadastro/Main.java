@@ -1,12 +1,31 @@
-package src.cadastro;
+package cadastro;
 
+import java.sql.Connection;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Locale;
 import java.util.Scanner;
 
+import database.DatabaseConnection;
+
 public class Main {
 
 	public static void main(String[] args) {
+
+		String url = "jdbc:postgresql://localhost:5432/streamfilmes";
+		String username = "postgres";
+		String password = "root";
+
+		DatabaseConnection dbConnection = new DatabaseConnection(url, username, password);
+
+		try (Connection connection = dbConnection.getConnection()) {
+			System.out.println("Conexão bem-sucedida!");
+			// Agora você tem a conexão e pode continuar a implementar outras
+			// funcionalidades.
+		} catch (SQLException e) {
+			System.err.println("Erro ao conectar ao banco de dados: " + e.getMessage());
+		}
+
 		Scanner scanner = new Scanner(System.in);
 		scanner.useLocale(Locale.forLanguageTag("pt-BR"));
 		ArrayList<Filme> filmes = new ArrayList<>();
@@ -44,8 +63,8 @@ public class Main {
 				} else {
 					System.out.println("Filmes cadastrados: ");
 					for (Filme filme : filmes) {
-						System.out.println("\nTítulo: " + filme.getTitulo() + "\nAno: " + filme.getAno() + "\nAvalia  o: "
-								+ filme.getAvaliacao() );
+						System.out.println("\nTítulo: " + filme.getTitulo() + "\nAno: " + filme.getAno()
+								+ "\nAvalia  o: " + filme.getAvaliacao());
 					}
 				}
 				break;
@@ -58,4 +77,5 @@ public class Main {
 		} while (opcao != 3);
 		scanner.close();
 	}
+
 }

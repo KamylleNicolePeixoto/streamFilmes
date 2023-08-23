@@ -1,4 +1,4 @@
-package src.cadastro;
+package cadastro;
 
 import lombok.Getter;
 import lombok.Setter;
