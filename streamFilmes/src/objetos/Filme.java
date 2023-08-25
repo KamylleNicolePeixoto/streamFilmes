@@ -1,4 +1,4 @@
-package cadastro;
+package objetos;
 
 import lombok.Getter;
 import lombok.Setter;
